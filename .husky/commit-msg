@@ -1,0 +1,16 @@
+echo "🚀 Rodando commit-msg hook"
+
+if ! npx --no -- commitlint --edit "$1"; then
+  echo ""
+  echo "🚫 Commit REJEITADO: a mensagem do commit NÃO segue o padrão obrigatório."
+  echo "💡 Dicas para ajustar a mensagem:"
+  echo ""
+  echo " - Use o formato: <tipo>[escopo opcional]: <descrição em minúsculo>"
+  echo " - Ex.: feat(login): adicionar validação de senha"
+  echo " - Para mais detalhes, consulte: https://commitlint.js.org/#/"
+  echo ""
+  exit 1
+else
+  echo ""
+  echo "✅ Commit APROVADO: a mensagem segue o padrão obrigatório."
+fi
